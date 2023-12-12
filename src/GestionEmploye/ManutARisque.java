@@ -1,16 +1,11 @@
 package GestionEmploye;
 
-class ManutARisque extends Employe{
-	private double nbreHeures;
+class ManutARisque extends Manutentionnaire implements EmployeRisque{
 	public ManutARisque(String nom,String prenom,int age,String DateEntree,int nbreHeures) {
-		super(nom,prenom,age,DateEntree);
-		this.nbreHeures=nbreHeures;
+		super(nom,prenom,age,DateEntree,nbreHeures);
 	}
 	@Override
 	public double calculerSalaire() {
-		return nbreHeures*65+200;
-	}
-	public String getTitreEmploye() {
-		return "Le Manut.";
+		return super.calculerSalaire()+prime;
 	}
 }
